@@ -1,12 +1,10 @@
 from functools import lru_cache
 from langchain_anthropic import ChatAnthropic
 from langchain_openai import ChatOpenAI
-from my_agent.utils.tools import tools
-from langgraph.prebuilt import ToolNode
+from typing import Callable, List
 
 
-@lru_cache(maxsize=4)
-def _get_model(model_name: str):
+def _get_model(model_name: str, tools: List[Callable]):
     if model_name == "openai":
         model = ChatOpenAI(temperature=0, model_name="gpt-4o")
     elif model_name == "anthropic":
@@ -32,14 +30,14 @@ def should_continue(state):
 system_prompt = """Be a helpful assistant"""
 
 # Define the function that calls the model
-def call_model(state, config):
-    messages = state["messages"]
-    messages = [{"role": "system", "content": system_prompt}] + messages
-    model_name = config.get('configurable', {}).get("model_name", "anthropic")
-    model = _get_model(model_name)
-    response = model.invoke(messages)
-    # We return a list, because this will get added to the existing list
-    return {"messages": [response]}
+def make_call_model(tools: List[Callable]):
+    def call_model(state, config):
+        messages = state["messages"]
+        messages = [{"role": "system", "content": system_prompt}] + messages
+        model_name = config.get('configurable', {}).get("model_name", "anthropic")
+        model = _get_model(model_name, tools)
+        response = model.invoke(messages)
+        # We return a list, because this will get added to the existing list
+        return {"messages": [response]}
 
-# Define the function to execute tools
-tool_node = ToolNode(tools)
+    return call_model

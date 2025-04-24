@@ -4,3 +4,7 @@ tavily-python
 langchain_community
 langchain_openai
 langgraph-cli[inmem]
+langchain-mcp-adapters
+mcp
+python-dotenv
+langchain
