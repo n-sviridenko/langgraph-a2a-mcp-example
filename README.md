@@ -15,10 +15,10 @@ graph TD
         Tavily
     end
     
-    style A2AClient fill:#f9f,stroke:#333,stroke-width:2px
-    style A2AAdapter fill:#bbf,stroke:#333,stroke-width:2px
-    style Graph fill:#bfb,stroke:#333,stroke-width:2px
-    style Tavily fill:#fbb,stroke:#333,stroke-width:2px
+    style A2AClient fill:#e1e8ed,stroke:#333,stroke-width:1.5px
+    style A2AAdapter fill:#9aadc2,stroke:#333,stroke-width:1.5px
+    style Graph fill:#c2dcf2,stroke:#333,stroke-width:1.5px
+    style Tavily fill:#d3e0ea,stroke:#333,stroke-width:1.5px
 ```
 
 ## Overview
