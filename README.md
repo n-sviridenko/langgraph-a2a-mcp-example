@@ -2,6 +2,9 @@
 
 This repository demonstrates how to build an [A2A Protocol](https://google.github.io/A2A/)-compatible application using [LangGraph](https://github.com/langchain-ai/langgraph) with Multi-Channel Protocol ([MCP](https://github.com/langchain-ai/langchain-mcp-adapters)) capabilities.
 
+## Video Overview
+[![Video Overview](https://img.youtube.com/vi/1LlX45CMc84/0.jpg)](https://www.youtube.com/watch?v=1LlX45CMc84)
+
 ## Architecture
 
 ```mermaid
